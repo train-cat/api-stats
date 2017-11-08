@@ -8,8 +8,8 @@ import (
 	"os/signal"
 	"time"
 
-	"github.com/train-cat/starter-issue-subscriber/helper"
-	"github.com/train-cat/starter-issue-subscriber/route"
+	"github.com/train-cat/api-stats/helper"
+	"github.com/train-cat/api-stats/route"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
 )

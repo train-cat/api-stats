@@ -4,15 +4,17 @@ import (
 	"flag"
 	"os"
 
-	"github.com/train-cat/starter-issue-subscriber/helper"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
+	"github.com/train-cat/api-stats/helper"
+	"github.com/train-cat/api-stats/model"
 )
 
 func init() {
 	initLogging()
 	initConfig()
 	helper.InitHelper()
+	model.InitDatabase()
 }
 
 func initLogging() {

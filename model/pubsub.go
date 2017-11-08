@@ -6,12 +6,6 @@ import (
 	"net/http"
 )
 
-// List of state available
-const (
-	StateDelayed = "delayed"
-	StateDeleted = "deleted"
-)
-
 type (
 	// PubSubMessage receive from pub/sub
 	PubSubMessage struct {

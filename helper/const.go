@@ -6,4 +6,5 @@ const (
 	ExitCodeErrorInitConfig
 	ExitCodeErrorListenServer
 	ExitCodeErrorStopServer
+	ExitCodeErrorInitDatabase
 )

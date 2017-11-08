@@ -2,6 +2,13 @@
     "http": {
         "port": 8080
     },
+    "database": {
+        "host": "localhost",
+        "name": "train-stats",
+        "username": "train-stats",
+        "password": "",
+        "port": 3306
+    },
     "pubsub": {
         "token": ""
     }
