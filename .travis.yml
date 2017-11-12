@@ -1,0 +1,22 @@
+sudo: required
+
+language: go
+go:
+  - 1.8
+
+services:
+  - docker
+
+before_script:
+  - go get -t ./..
+
+script:
+  - CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o api-stats *.go
+
+after_success:
+  - docker login -u="$DOCKER_USER" -p="$DOCKER_PASS"
+  - export REPO=$DOCKER_USER/api-stats
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  - docker build -f Dockerfile -t $REPO:$TAG .
+  - docker push $REPO
+
