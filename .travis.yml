@@ -7,9 +7,6 @@ go:
 services:
   - docker
 
-before_script:
-  - dep ensure
-
 script:
   - CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -o api-stats *.go
 
