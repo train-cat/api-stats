@@ -8,10 +8,10 @@ import (
 	"os/signal"
 	"time"
 
-	"github.com/train-cat/api-stats/helper"
-	"github.com/train-cat/api-stats/route"
 	log "github.com/sirupsen/logrus"
 	"github.com/spf13/viper"
+	"github.com/train-cat/api-stats/helper"
+	"github.com/train-cat/api-stats/route"
 )
 
 func main() {

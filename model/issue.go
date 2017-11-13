@@ -6,6 +6,7 @@ import (
 	"github.com/jinzhu/gorm"
 )
 
+// IssueEntity structure for database
 type IssueEntity struct {
 	gorm.Model
 	Schedule  int64  `gorm:"column:schedule"`
@@ -14,6 +15,7 @@ type IssueEntity struct {
 	CodeTrain string `gorm:"column:code_train"`
 }
 
+// ToEntity transform pub/sub issue to the IssueEntity
 func (i *Issue) ToEntity() (*IssueEntity, error) {
 	schedule, err := time.Parse("02/01/2006 15:04 -0700", i.Schedule)
 
@@ -25,14 +27,16 @@ func (i *Issue) ToEntity() (*IssueEntity, error) {
 		StationID: i.StationID,
 		State:     i.State,
 		CodeTrain: i.Code,
-		Schedule: schedule.Unix(),
+		Schedule:  schedule.Unix(),
 	}, nil
 }
 
+// TableName for IssueEntity
 func (e IssueEntity) TableName() string {
 	return "issue"
 }
 
+// Persist issue in database
 func (e *IssueEntity) Persist() error {
 	return db.Save(e).Error
 }
